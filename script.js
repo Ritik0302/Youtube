@@ -1,5 +1,5 @@
-const apiKey = "YOUR_API_KEY";   // replace with your key
-const channelId = "YOUR_CHANNEL_ID"; // replace with your channel ID
+const apiKey = "AIzaSyDfs-O2fgdYCB7RCq4v1U6g70Zii_O41d4";   // replace with your key
+const channelId = "UC4h6XMpRUahzM4HtEcuLl4w"; // replace with your channel ID
 const maxResults = 6;
 
 fetch(`https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet&order=date&maxResults=${maxResults}`)
