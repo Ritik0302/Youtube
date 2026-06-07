@@ -20,7 +20,7 @@ function fetchVideos(containerId, filterFn) {
       const videoIds = data.items.map(item => item.id.videoId).join(",");
 
       // Fetch durations
-      return fetch(`https://www.googleapis.com/youtube/v3/videos?key=${apiKey}&id=${videoIds}&part=contentDetails,snippet`);
+      return fetch(`https://www.googleapis.com/youtube/v3/videos?key=${apiKey}&id=${videoIds}&part=contentDetails,snippet,liveStreamingDetails`);
     })
     .then(res => res.json())
     .then(data => {
@@ -31,9 +31,10 @@ function fetchVideos(containerId, filterFn) {
         const thumb = item.snippet.thumbnails.medium.url;
         const link = `https://www.youtube.com/watch?v=${videoId}`;
         const durationSec = parseDuration(item.contentDetails.duration);
+        const isLive = !!item.liveStreamingDetails;
 
         // Apply filter
-        if (filterFn && !filterFn(durationSec, title)) return;
+        if (filterFn && !filterFn(durationSec, title, isLive)) return;
 
         container.innerHTML += `
           <a href="${link}" target="_blank">
@@ -46,16 +47,27 @@ function fetchVideos(containerId, filterFn) {
     .catch(err => console.error("Error:", err));
 }
 
-// Long videos (>180s)
-fetchVideos("videos", (duration, title) => duration > 180);
+// Long videos (>180s, not live)
+fetchVideos("videos", (duration, title, isLive) => duration > 180 && !isLive);
 
-// Shorts (<=180s)
-fetchVideos("shorts", (duration, title) => duration <= 180);
+// Shorts (<=180s, not live)
+fetchVideos("shorts", (duration, title, isLive) => duration <= 180 && !isLive);
 
-// Live (title contains "live")
-fetchVideos("live", (duration, title) => title.toLowerCase().includes("live"));
+// Live (only liveStreamingDetails present)
+fetchVideos("live", (duration, title, isLive) => isLive);
 
 // Posts placeholder
 document.getElementById("posts").innerHTML = `
   <p style="color:#00ff99;">Community posts are not available via API yet. Add manual links here.</p>
 `;
+
+// Tabs switching logic
+document.querySelectorAll(".tabs button").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const target = btn.getAttribute("data-target");
+    document.querySelectorAll("main section").forEach(sec => {
+      sec.style.display = (sec.id === target) ? "block" : "none";
+    });
+  });
+});
+
