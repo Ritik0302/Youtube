@@ -1,6 +1,6 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #0d0d0d; /* dark background */
+  background-color: #0d0d0d;
   margin: 0;
   padding: 0;
   color: #e0e0e0;
@@ -25,14 +25,25 @@ header h1 {
   text-shadow: 0 0 10px #00ff00;
 }
 
-#videos {
+.section {
+  margin: 40px 20px;
+}
+
+.section h2 {
+  color: #00ff66;
+  text-shadow: 0 0 10px #00ff00;
+  border-bottom: 2px solid #00ff66;
+  padding-bottom: 8px;
+  margin-bottom: 20px;
+}
+
+.section div {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 20px;
-  padding: 20px;
 }
 
-#videos a {
+.section a {
   text-decoration: none;
   color: #e0e0e0;
   background: #1a1a1a;
@@ -42,17 +53,17 @@ header h1 {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-#videos a:hover {
+.section a:hover {
   transform: scale(1.05);
   box-shadow: 0 0 20px rgba(0,255,0,0.6);
 }
 
-#videos img {
+.section img {
   width: 100%;
   display: block;
 }
 
-#videos p {
+.section p {
   margin: 10px;
   font-size: 14px;
   font-weight: 500;
