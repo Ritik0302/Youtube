@@ -1,110 +1,154 @@
 body {
-  font-family: Arial, sans-serif;
-  background-color: #0d0d0d;
   margin: 0;
-  padding: 0;
-  color: #e0e0e0;
-  background-image: radial-gradient(circle at top left, #003300, #000000);
+  font-family: "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, #001a10, #000);
+  color: #eafff3;
 }
 
-header {
+/* TOP BAR */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 24px;
+  background: rgba(0, 0, 0, 0.8);
+  border-bottom: 1px solid rgba(0,255,120,0.3);
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+}
+
+.brand {
   display: flex;
   align-items: center;
-  background: linear-gradient(90deg, #000, #0f0f0f, #00ff00);
-  padding: 15px 20px;
-  box-shadow: 0 2px 10px rgba(0,255,0,0.4);
+  gap: 12px;
 }
 
-header .logo {
-  height: 50px;
-  margin-right: 15px;
+.logo {
+  width: 45px;
+  height: 45px;
+  border-radius: 8px;
 }
 
-header h1 {
-  font-size: 24px;
-  color: #00ff66;
-  text-shadow: 0 0 10px #00ff00;
+.brand h1 {
+  margin: 0;
+  font-size: 18px;
+  color: #00ff7b;
+  text-shadow: 0 0 10px #00ff7b;
 }
 
+.brand p {
+  margin: 0;
+  font-size: 12px;
+  color: #aaa;
+}
+
+/* SUBSCRIBE */
 .subscribe-btn {
-  margin-left: auto;
-  padding: 10px 20px;
-  background: #00ff66;
-  color: #000;
+  padding: 10px 18px;
+  background: linear-gradient(45deg, #00ff7b, #00c853);
+  color: black;
   font-weight: bold;
-  border-radius: 6px;
+  border-radius: 8px;
   text-decoration: none;
-  box-shadow: 0 0 15px #00ff66;
-  transition: all 0.3s ease;
-}
-.subscribe-btn:hover {
-  background: #0f0;
-  box-shadow: 0 0 25px #00ff66, 0 0 50px #00ff66;
-  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(0,255,120,0.5);
+  transition: 0.3s;
 }
 
+.subscribe-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 35px rgba(0,255,120,0.8);
+}
+
+/* TABS */
 .tabs {
   display: flex;
   justify-content: center;
-  background: #111;
-  padding: 10px;
+  gap: 10px;
+  padding: 12px;
+  position: sticky;
+  top: 75px;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(8px);
+  z-index: 999;
 }
+
 .tabs button {
+  border: 1px solid #00ff7b;
   background: transparent;
-  border: 2px solid #00ff66;
-  color: #00ff66;
+  color: #00ff7b;
   padding: 8px 16px;
-  margin: 0 8px;
+  border-radius: 6px;
   cursor: pointer;
   transition: 0.3s;
 }
-.tabs button:hover {
-  background: #00ff66;
-  color: #000;
-  box-shadow: 0 0 15px #00ff66;
+
+.tabs button:hover,
+.tabs button.active {
+  background: #00ff7b;
+  color: black;
+  box-shadow: 0 0 15px #00ff7b;
 }
 
+/* SECTIONS */
 .section {
-  margin: 40px 20px;
+  padding: 20px;
 }
 
 .section h2 {
-  color: #00ff66;
-  text-shadow: 0 0 10px #00ff00;
-  border-bottom: 2px solid #00ff66;
-  padding-bottom: 8px;
-  margin-bottom: 20px;
+  color: #00ff7b;
+  margin-bottom: 15px;
+  text-shadow: 0 0 8px rgba(0,255,120,0.4);
 }
 
-.section div {
+/* GRID */
+.grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 18px;
 }
 
-.section a {
-  text-decoration: none;
-  color: #e0e0e0;
-  background: #1a1a1a;
-  border-radius: 8px;
+/* CARD */
+.grid a {
+  background: #0d0d0d;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 0 12px rgba(0,255,0,0.3);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.section a:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(0,255,0,0.6);
+  text-decoration: none;
+  color: white;
+  transition: 0.3s;
+  border: 1px solid rgba(0,255,120,0.1);
+  position: relative;
 }
 
-.section img {
+.grid a:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 0 25px rgba(0,255,120,0.4);
+  border-color: #00ff7b;
+}
+
+/* THUMBNAIL */
+.grid img {
   width: 100%;
-  display: block;
+  height: 160px;
+  object-fit: cover;
 }
 
-.section p {
-  margin: 10px;
+/* TITLE */
+.grid p {
+  padding: 10px;
   font-size: 14px;
-  font-weight: 500;
+  color: #bfffe0;
   line-height: 1.4;
-  color: #00ff99;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* POSTS */
+#posts {
+  padding: 20px;
+  color: #aaa;
 }
