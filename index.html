@@ -3,34 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <title>ToxicInsaanYT</title>
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png">
-  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
     <img src="logo.png" alt="ToxicInsaanYT Logo" class="logo">
-    <h1>ToxicInsaanYT</h1>
+    <h1>Welcome To ToxicInsaanYT</h1>
   </header>
 
-  <!-- Tabs -->
-  <nav class="tabs">
-    <button class="tab-btn active" data-target="videos">Videos</button>
-    <button class="tab-btn" data-target="shorts">Shorts</button>
-    <button class="tab-btn" data-target="live">Live Streams</button>
-    <button class="tab-btn" data-target="posts">Posts</button>
-  </nav>
-
-  <!-- Tab Content -->
   <main>
-    <div id="videos" class="tab-content active"></div>
-    <div id="shorts" class="tab-content"></div>
-    <div id="live" class="tab-content"></div>
-    <div id="posts" class="tab-content"></div>
+    <section class="section" id="videos-section">
+      <h2>Videos</h2>
+      <div id="videos"></div>
+    </section>
+
+    <section class="section" id="shorts-section">
+      <h2>Shorts</h2>
+      <div id="shorts"></div>
+    </section>
+
+    <section class="section" id="live-section">
+      <h2>Live Streams</h2>
+      <div id="live"></div>
+    </section>
+
+    <section class="section" id="posts-section">
+      <h2>Community Posts</h2>
+      <div id="posts"></div>
+    </section>
   </main>
 
-  <!-- JS -->
   <script src="script.js"></script>
 </body>
 </html>
