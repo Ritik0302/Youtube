@@ -1,0 +1,23 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: #f9f9f9;
+}
+
+#videos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+#videos a {
+  text-decoration: none;
+  color: black;
+  width: 200px;
+}
+
+#videos img {
+  width: 100%;
+  border-radius: 8px;
+}
