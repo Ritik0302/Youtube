@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>ToxicInsaanYT</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>ToxicInsaanYT</title>
+
+<link rel="stylesheet" href="style.css">
+
+<!-- ICONS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
@@ -17,6 +21,12 @@
     </div>
   </div>
 
+  <div class="social">
+    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+    <a href="#"><i class="fa-brands fa-discord"></i></a>
+  </div>
+
   <a class="subscribe-btn"
      href="https://www.youtube.com/channel/UC4h6XMpRUahzM4HtEcuLl4w?sub_confirmation=1"
      target="_blank">
@@ -25,33 +35,18 @@
 </header>
 
 <nav class="tabs">
-  <button class="active" data-target="videos-section">Videos</button>
-  <button data-target="shorts-section">Shorts</button>
-  <button data-target="live-section">Live</button>
-  <button data-target="posts-section">Posts</button>
+  <button class="active" data-tab="videos"><i class="fa fa-play"></i> Videos</button>
+  <button data-tab="shorts"><i class="fa fa-scissors"></i> Shorts</button>
+  <button data-tab="live"><i class="fa fa-bolt"></i> Live</button>
+  <button data-tab="posts"><i class="fa fa-comment"></i> Posts</button>
 </nav>
 
 <main>
 
-  <section id="videos-section" class="section">
-    <h2>🔥 Latest Videos</h2>
-    <div id="videos" class="grid"></div>
-  </section>
-
-  <section id="shorts-section" class="section">
-    <h2>⚡ Shorts</h2>
-    <div id="shorts" class="grid"></div>
-  </section>
-
-  <section id="live-section" class="section">
-    <h2>🔴 Live Streams</h2>
-    <div id="live" class="grid"></div>
-  </section>
-
-  <section id="posts-section" class="section">
-    <h2>💬 Posts</h2>
-    <div id="posts"></div>
-  </section>
+<section id="videos" class="section"></section>
+<section id="shorts" class="section" style="display:none"></section>
+<section id="live" class="section" style="display:none"></section>
+<section id="posts" class="section" style="display:none"></section>
 
 </main>
 
