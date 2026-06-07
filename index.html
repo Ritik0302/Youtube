@@ -5,44 +5,56 @@
   <title>ToxicInsaanYT</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <header>
-    <img src="logo.png" alt="ToxicInsaanYT Logo" class="logo">
-    <h1>Welcome To ToxicInsaanYT</h1>
-    <!-- Subscribe Button -->
-    <a href="https://www.youtube.com/channel/UC4h6XMpRUahzM4HtEcuLl4w?sub_confirmation=1" 
-       target="_blank" class="subscribe-btn">Subscribe</a>
-  </header>
 
-  <nav class="tabs">
-    <button data-target="videos-section">Videos</button>
-    <button data-target="shorts-section">Shorts</button>
-    <button data-target="live-section">Live</button>
-    <button data-target="posts-section">Posts</button>
-  </nav>
+<header class="topbar">
+  <div class="brand">
+    <img src="logo.png" class="logo">
+    <div>
+      <h1>ToxicInsaanYT</h1>
+      <p>Gaming • Live • Shorts</p>
+    </div>
+  </div>
 
-  <main>
-    <section class="section" id="videos-section">
-      <h2>Videos</h2>
-      <div id="videos"></div>
-    </section>
+  <a class="subscribe-btn"
+     href="https://www.youtube.com/channel/UC4h6XMpRUahzM4HtEcuLl4w?sub_confirmation=1"
+     target="_blank">
+     Subscribe
+  </a>
+</header>
 
-    <section class="section" id="shorts-section">
-      <h2>Shorts</h2>
-      <div id="shorts"></div>
-    </section>
+<nav class="tabs">
+  <button class="active" data-target="videos-section">Videos</button>
+  <button data-target="shorts-section">Shorts</button>
+  <button data-target="live-section">Live</button>
+  <button data-target="posts-section">Posts</button>
+</nav>
 
-    <section class="section" id="live-section">
-      <h2>Live Streams</h2>
-      <div id="live"></div>
-    </section>
+<main>
 
-    <section class="section" id="posts-section">
-      <h2>Community Posts</h2>
-      <div id="posts"></div>
-    </section>
-  </main>
+  <section id="videos-section" class="section">
+    <h2>🔥 Latest Videos</h2>
+    <div id="videos" class="grid"></div>
+  </section>
 
-  <script src="script.js"></script>
+  <section id="shorts-section" class="section">
+    <h2>⚡ Shorts</h2>
+    <div id="shorts" class="grid"></div>
+  </section>
+
+  <section id="live-section" class="section">
+    <h2>🔴 Live Streams</h2>
+    <div id="live" class="grid"></div>
+  </section>
+
+  <section id="posts-section" class="section">
+    <h2>💬 Posts</h2>
+    <div id="posts"></div>
+  </section>
+
+</main>
+
+<script src="script.js"></script>
 </body>
 </html>
