@@ -18,6 +18,7 @@ function fetchSection(type, containerId, filterFn = null) {
         const title = item.snippet.title;
         const link = `https://www.youtube.com/watch?v=${videoId}`;
 
+        // Optional filter (for Shorts or Live)
         if (filterFn && !filterFn(title)) return;
 
         container.innerHTML += `
@@ -31,27 +32,16 @@ function fetchSection(type, containerId, filterFn = null) {
     .catch(err => console.error("Error:", err));
 }
 
-// Fetch sections
+// Fetch normal videos
 fetchSection("video", "videos");
+
+// Fetch shorts (filter by title or hashtag)
 fetchSection("video", "shorts", title => title.toLowerCase().includes("short"));
+
+// Fetch live streams (filter by title)
 fetchSection("video", "live", title => title.toLowerCase().includes("live"));
 
-// Posts placeholder
+// Posts section placeholder (YouTube API doesn’t expose posts directly)
 document.getElementById("posts").innerHTML = `
   <p style="color:#00ff99;">Community posts are not available via API yet. You can manually link your posts here.</p>
 `;
-
-// Tab switching logic
-document.addEventListener("DOMContentLoaded", () => {
-  const tabs = document.querySelectorAll(".tab-btn");
-  const contents = document.querySelectorAll(".tab-content");
-
-  tabs.forEach(tab => {
-    tab.addEventListener("click", () => {
-      tabs.forEach(t => t.classList.remove("active"));
-      contents.forEach(c => c.classList.remove("active"));
-
-      tab.classList.add("active");
-      document.getElementById(tab.dataset.target).classList.add("active");
-    });
-  });
