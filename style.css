@@ -1,3 +1,9 @@
+:root {
+  --primary: #00ff88;
+  --bg: #050807;
+  --glow: rgba(0,255,136,0.5);
+}
+
 body {
   margin: 0;
   font-family: Arial;
@@ -13,7 +19,7 @@ body {
   padding: 12px 20px;
   background: rgba(0,0,0,0.8);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid #00ff7b33;
+  border-bottom: 1px solid rgba(0,255,136,0.2);
 }
 
 .brand {
@@ -28,7 +34,7 @@ body {
 }
 
 .brand h1 {
-  color: #00ff7b;
+  color: var(--primary);
   margin: 0;
 }
 
@@ -45,24 +51,23 @@ body {
 }
 
 .social a {
-  color: #00ff7b;
+  color: var(--primary);
   font-size: 18px;
   transition: 0.3s;
 }
 
 .social a:hover {
   transform: scale(1.2);
-  color: white;
 }
 
 /* SUB BUTTON */
 .subscribe-btn {
-  padding: 10px 15px;
-  background: #00ff7b;
+  background: var(--primary);
   color: black;
+  padding: 10px 15px;
   border-radius: 8px;
-  text-decoration: none;
   font-weight: bold;
+  text-decoration: none;
 }
 
 /* TABS */
@@ -73,30 +78,27 @@ body {
   padding: 10px;
   position: sticky;
   top: 65px;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.6);
   backdrop-filter: blur(10px);
 }
 
 .tabs button {
+  border: 1px solid var(--primary);
+  background: transparent;
+  color: var(--primary);
   padding: 10px 15px;
   border-radius: 999px;
-  border: 1px solid #00ff7b;
-  background: transparent;
-  color: #00ff7b;
   cursor: pointer;
 }
 
 .tabs button.active {
-  background: #00ff7b;
+  background: var(--primary);
   color: black;
 }
 
 /* GRID */
 .section {
   padding: 20px;
-}
-
-.grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 15px;
@@ -104,25 +106,50 @@ body {
 
 /* CARD */
 .card {
-  background: #0d0d0d;
-  border-radius: 10px;
+  position: relative;
+  border-radius: 12px;
   overflow: hidden;
-  border: 1px solid #00ff7b22;
+  background: #0b0f0c;
+  border: 1px solid rgba(0,255,136,0.15);
   transition: 0.3s;
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 20px #00ff7b55;
+  transform: translateY(-6px);
+  box-shadow: 0 0 25px var(--glow);
 }
 
 .card img {
   width: 100%;
-  height: 150px;
+  height: 180px;
   object-fit: cover;
+  transition: 0.4s;
 }
 
+/* IMAGE ZOOM */
+.card:hover img {
+  transform: scale(1.1);
+  filter: brightness(0.5);
+}
+
+/* TITLE OVERLAY (IMPORTANT FIX) */
 .card p {
-  padding: 10px;
-  color: #bfffe0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 12px;
+  font-size: 13px;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: 0.3s;
+}
+
+.card:hover p {
+  opacity: 1;
+  transform: translateY(0);
 }
